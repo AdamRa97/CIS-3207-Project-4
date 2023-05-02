@@ -1,8 +1,13 @@
-FLAGS = -Wall -Werror -pthread
+FLAGS = -Wall -Werror -lpthread
 
-all:
-	gcc main.c -o main.o ${FLAGS}
+all:producer consumer
+
+producer:
+	gcc producer.c -o producer -Wall -Werror
+consumer:
+	gcc consumer.c -o consumer ${FLAGS}
 
 clean:
-	rm -rf *.o
+	rm producer
+	rm consumer
 	rm -rf output.txt
